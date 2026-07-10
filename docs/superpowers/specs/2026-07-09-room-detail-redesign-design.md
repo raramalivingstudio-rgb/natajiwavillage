@@ -21,7 +21,7 @@ The user has requested the section be redesigned so that the visual order become
 
 1. Vertical reading flow: title → photo → description → amenities → CTA.
 2. Consistent treatment for both rooms (Deluxe + King).
-3. Modern, boutique-hotel feel suitable for Rarama Living Studio.
+3. Modern, boutique-hotel feel suitable for Rarama Teba Villa.
 4. Mobile-friendly photo gallery with lightbox.
 5. No new dependencies (no Swiper, no Lightbox2) — vanilla JS only.
 

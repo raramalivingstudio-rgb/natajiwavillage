@@ -136,7 +136,7 @@ If either count is wrong, re-check which section was replaced.
 
 Run:
 ```bash
-cd "/Users/rizmana/Downloads/Rarama Living Studio"
+cd "/Users/rizmana/Downloads/Rarama Teba Villa"
 git diff --stat rooms/index.html
 ```
 Expected: ~76 lines removed, ~74 lines added in `rooms/index.html`.
@@ -464,7 +464,7 @@ Expected: a single line referencing `.rd-rule`.
 
 - [ ] **Step 4: Visual smoke check (no JS yet)**
 
-Open `http://localhost:3005/rooms` in a browser. Expected:
+Open `http://localhost:3006/rooms` in a browser. Expected:
 - The page title block for each room appears (eyebrow + H2 + hr).
 - **No photo, description, amenities, or CTA visible** (`.rd-body` is hidden until JS adds `rd-ready`).
 
@@ -703,7 +703,7 @@ Insert this block immediately above the `</body>` tag:
 
 - [ ] **Step 3: Smoke check in browser**
 
-Open `http://localhost:3005/rooms`. Hard reload (Cmd/Ctrl+Shift+R) to bust cache.
+Open `http://localhost:3006/rooms`. Hard reload (Cmd/Ctrl+Shift+R) to bust cache.
 
 Verify in order:
 - [ ] Both Deluxe and King Room sections now show: title → photo (hero) → thumb strip → description → 6 amenity cards in a 3-column grid → full-width RESERVE NOW button.
@@ -727,7 +727,7 @@ Open browser devtools console. Expected: no errors (warnings about FontAwesome d
 
 Run:
 ```bash
-cd "/Users/rizmana/Downloads/Rarama Living Studio"
+cd "/Users/rizmana/Downloads/Rarama Teba Villa"
 git add rooms/index.html
 git commit -m "$(cat <<'EOF'
 feat(rooms): redesign room-detail section with vertical layout + slider
@@ -760,7 +760,7 @@ Expected: commit succeeds. `git log --oneline -1` shows the new commit on top.
 
 Run:
 ```bash
-cd "/Users/rizmana/Downloads/Rarama Living Studio"
+cd "/Users/rizmana/Downloads/Rarama Teba Villa"
 git diff HEAD~1 HEAD --stat
 ```
 Expected: only `rooms/index.html` changed.
@@ -788,6 +788,6 @@ Expected: `1` (one occurrence, in the CTA template within the JS initializer).
 
 - [ ] **Step 4: Final browser check**
 
-Hard reload `http://localhost:3005/rooms`. Walk through both room sections end-to-end (slider, lightbox, hover states, responsive). All checks from Task 3 Step 3 should still pass.
+Hard reload `http://localhost:3006/rooms`. Walk through both room sections end-to-end (slider, lightbox, hover states, responsive). All checks from Task 3 Step 3 should still pass.
 
 If all four sub-steps pass, the redesign is complete. Push branch with `git push -u origin feat/rooms-page` if ready to ship.

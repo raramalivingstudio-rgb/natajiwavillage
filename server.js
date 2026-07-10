@@ -7,24 +7,24 @@ const PORT = process.env.PORT || 3005;
 const ROOT = __dirname;
 
 // Clean URL for the rooms page — must come BEFORE static middleware,
-// otherwise express.static redirects /rooms → /rooms/ (which still works,
+// otherwise express.static redirects /two-bedroom-private-pool-villa → /two-bedroom-private-pool-villa/ (which still works,
 // but this avoids the extra round-trip and keeps the URL clean)
-app.get('/rooms', (req, res) => {
+app.get('/two-bedroom-private-pool-villa', (req, res) => {
   res.sendFile(path.join(ROOT, 'rooms', 'index.html'));
 });
 
-// Clean URL for the gallery page — same pattern as /rooms.
-app.get('/gallery', (req, res) => {
+// Clean URL for the gallery page — same pattern as /two-bedroom-private-pool-villa.
+app.get('/gallery-rarama-teba-villa', (req, res) => {
   res.sendFile(path.join(ROOT, 'gallery', 'index.html'));
 });
 
-// Clean URL for the Kuta Area page — same pattern as /rooms and /gallery.
-app.get('/kuta-area', (req, res) => {
+// Clean URL for the Kuta Area page — same pattern as /two-bedroom-private-pool-villa and /gallery-rarama-teba-villa.
+app.get('/kuta-area-rarama-teba-villa', (req, res) => {
   res.sendFile(path.join(ROOT, 'kuta-area', 'index.html'));
 });
 
 // Clean URL for the Contact page — same pattern as the other pages.
-app.get('/contact', (req, res) => {
+app.get('/contact-us-rarama-teba-villa', (req, res) => {
   res.sendFile(path.join(ROOT, 'contact', 'index.html'));
 });
 
