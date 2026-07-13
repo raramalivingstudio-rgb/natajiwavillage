@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://natajiwa.com/natajiwa-village/sitemap.xml
+Sitemap: https://natajiwa.com/sitemap.xml
