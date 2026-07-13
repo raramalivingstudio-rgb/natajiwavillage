@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://raramalivingstudio.com/rarama-teba-villa/sitemap.xml
+Sitemap: https://natajiwa.com/natajiwa-village/sitemap.xml

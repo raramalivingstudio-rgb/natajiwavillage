@@ -161,7 +161,7 @@
             <circle cx="40" cy="40" r="40" fill="#C46A3F"/>
             <text x="40" y="52" text-anchor="middle" font-family="Plus Jakarta Sans, sans-serif" font-size="32" font-weight="600" fill="#F7F1E8">.</text>
           </svg>
-          <div><span class="name">Rarama Living Studio</span><span class="role">Studio</span></div>
+          <div><span class="name">Natajiwa Village</span><span class="role">Studio</span></div>
         </div>
       </article>
     </div>`;

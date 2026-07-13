@@ -7,24 +7,19 @@ const PORT = process.env.PORT || 3005;
 const ROOT = __dirname;
 
 // Clean URL for the rooms page — must come BEFORE static middleware,
-// otherwise express.static redirects /two-bedroom-private-pool-villa → /two-bedroom-private-pool-villa/ (which still works,
+// otherwise express.static redirects /natajiwa-rooms → /natajiwa-rooms/ (which still works,
 // but this avoids the extra round-trip and keeps the URL clean)
-app.get('/two-bedroom-private-pool-villa', (req, res) => {
+app.get('/natajiwa-rooms', (req, res) => {
   res.sendFile(path.join(ROOT, 'rooms', 'index.html'));
 });
 
-// Clean URL for the gallery page — same pattern as /two-bedroom-private-pool-villa.
-app.get('/gallery-rarama-teba-villa', (req, res) => {
+// Clean URL for the gallery page — same pattern as /natajiwa-rooms.
+app.get('/gallery-natajiwa-village', (req, res) => {
   res.sendFile(path.join(ROOT, 'gallery', 'index.html'));
 });
 
-// Clean URL for the Kuta Area page — same pattern as /two-bedroom-private-pool-villa and /gallery-rarama-teba-villa.
-app.get('/kuta-area-rarama-teba-villa', (req, res) => {
-  res.sendFile(path.join(ROOT, 'kuta-area', 'index.html'));
-});
-
 // Clean URL for the Contact page — same pattern as the other pages.
-app.get('/contact-us-rarama-teba-villa', (req, res) => {
+app.get('/contact-us-natajiwa-village', (req, res) => {
   res.sendFile(path.join(ROOT, 'contact', 'index.html'));
 });
 
@@ -56,7 +51,7 @@ app.use('/api', (req, res) => {
 });
 
 const server = app.listen(PORT, '0.0.0.0', () => {
-  console.log(`\nRarama Living Studio`);
+  console.log(`\nNatajiwa Village`);
   console.log(`  Local:   http://localhost:${PORT}`);
   console.log(`  Network: http://0.0.0.0:${PORT}\n`);
 });
