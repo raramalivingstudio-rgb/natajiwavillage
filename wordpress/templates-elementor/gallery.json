@@ -1,0 +1,62 @@
+{
+  "version": "0.4",
+  "title": "Natajiwa Gallery",
+  "type": "page",
+  "content": [
+    {
+      "id": "f0xk3xx",
+      "elType": "section",
+      "settings": {
+        "layout": "full_width",
+        "gap": "no",
+        "padding": {
+          "unit": "px",
+          "top": "0",
+          "right": "0",
+          "bottom": "0",
+          "left": "0",
+          "isLinked": true
+        },
+        "margin": {
+          "unit": "px",
+          "top": "0",
+          "right": "0",
+          "bottom": "0",
+          "left": "0",
+          "isLinked": true
+        }
+      },
+      "elements": [
+        {
+          "id": "mav7lav",
+          "elType": "column",
+          "settings": {
+            "_column_size": 100,
+            "_inline_size": null,
+            "padding": {
+              "unit": "px",
+              "top": "0",
+              "right": "0",
+              "bottom": "0",
+              "left": "0",
+              "isLinked": true
+            }
+          },
+          "elements": [
+            {
+              "id": "yxug8l6",
+              "elType": "widget",
+              "widgetType": "html",
+              "settings": {
+                "html": "<section class=\"hero\">\n  <div class=\"hero-frame page\" id=\"hero\">\n    <div class=\"hero-zoom\">\n      <div class=\"hero-drop\">\n        <div class=\"kb\" style=\"background-image:url('/wp-content/themes/natajiwa-child/assets/img/gallery-01.webp')\"></div>\n      </div>\n    </div>\n    <div class=\"hero-copy center\">\n      <span class=\"label\">A Look Inside</span>\n      <h1><span class=\"line\"><i>Gallery</i></span></h1>\n    </div>\n  </div>\n</section>\n\n<!-- INTRO -->\n<section class=\"intro\">\n  <p class=\"reveal\">Teak and garden, water and light — a few frames from life at Natajiwa Village.</p>\n</section>\n\n<!-- GALLERY GRID -->\n<section class=\"wrap\">\n  <div class=\"gallery-grid\">\n    <div class=\"media tall\"><img src=\"/wp-content/themes/natajiwa-child/assets/img/rooms/king-room/pool-view.webp\" alt=\"Pool view\"></div>\n    <div class=\"media\"><img src=\"/wp-content/themes/natajiwa-child/assets/img/gallery-02.webp\" alt=\"Garden\"></div>\n    <div class=\"media\"><img src=\"/wp-content/themes/natajiwa-child/assets/img/rooms/king-room/bed.webp\" alt=\"Wooden House bedroom\"></div>\n    <div class=\"media\"><img src=\"/wp-content/themes/natajiwa-child/assets/img/gallery-03.webp\" alt=\"Grounds\"></div>\n    <div class=\"media tall\"><img src=\"/wp-content/themes/natajiwa-child/assets/img/rooms/deluxe/bedroom-view.webp\" alt=\"Deluxe Studio\"></div>\n    <div class=\"media\"><img src=\"/wp-content/themes/natajiwa-child/assets/img/gallery-04.webp\" alt=\"Detail\"></div>\n    <div class=\"media\"><img src=\"/wp-content/themes/natajiwa-child/assets/img/rooms/king-room/bathroom.webp\" alt=\"Open-air bath\"></div>\n    <div class=\"media\"><img src=\"/wp-content/themes/natajiwa-child/assets/img/gallery-05.webp\" alt=\"Terrace\"></div>\n    <div class=\"media tall\"><img src=\"/wp-content/themes/natajiwa-child/assets/img/gallery-08.webp\" alt=\"Evening light\"></div>\n    <div class=\"media\"><img src=\"/wp-content/themes/natajiwa-child/assets/img/room-living.webp\" alt=\"Living space\"></div>\n    <div class=\"media\"><img src=\"/wp-content/themes/natajiwa-child/assets/img/gallery-10.webp\" alt=\"Pool at dusk\"></div>\n    <div class=\"media\"><img src=\"/wp-content/themes/natajiwa-child/assets/img/rooms/deluxe/bed-morning.webp\" alt=\"Morning light\"></div>\n  </div>\n</section>\n\n<!-- QUOTE -->\n<section class=\"quote\">\n  <div class=\"reveal\">\n    <span class=\"label\">@natajiwavillage</span>\n    <p>Come find the quiet corners — the ones the photos only hint at.</p>\n  </div>\n</section>\n\n<!-- CTA OASIS -->\n<section class=\"oasis\" id=\"oasis\">\n  <div class=\"leaf\" style=\"background-image:url('/wp-content/themes/natajiwa-child/assets/img/gallery-09.webp')\"></div>\n  <div class=\"wrap\">\n    <div class=\"reveal\"><h2>Your Stay Begins<br>with a Message</h2></div>\n    <div class=\"reveal d1\">\n      <p>Ready to trade the scroll for the real thing? Tell us your dates and we'll take care of the rest.</p>\n      <a class=\"btn light\" href=\"/contact/\">Reserve Your Stay</a>\n    </div>\n  </div>\n</section>\n\n<!-- FOOTER -->"
+              }
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "page_settings": {
+    "template": "elementor_canvas"
+  }
+}

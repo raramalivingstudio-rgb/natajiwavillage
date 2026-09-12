@@ -4,3 +4,6 @@ node_modules/
 .env
 .env.local
 index.html.design-clone-backup
+
+# WordPress theme build artifact (regenerate: cd wordpress && zip -rq natajiwa-child.zip natajiwa-child)
+wordpress/natajiwa-child.zip

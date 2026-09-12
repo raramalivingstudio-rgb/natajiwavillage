@@ -1,0 +1,62 @@
+{
+  "version": "0.4",
+  "title": "Natajiwa Contact",
+  "type": "page",
+  "content": [
+    {
+      "id": "9291pyc",
+      "elType": "section",
+      "settings": {
+        "layout": "full_width",
+        "gap": "no",
+        "padding": {
+          "unit": "px",
+          "top": "0",
+          "right": "0",
+          "bottom": "0",
+          "left": "0",
+          "isLinked": true
+        },
+        "margin": {
+          "unit": "px",
+          "top": "0",
+          "right": "0",
+          "bottom": "0",
+          "left": "0",
+          "isLinked": true
+        }
+      },
+      "elements": [
+        {
+          "id": "bx04ve0",
+          "elType": "column",
+          "settings": {
+            "_column_size": 100,
+            "_inline_size": null,
+            "padding": {
+              "unit": "px",
+              "top": "0",
+              "right": "0",
+              "bottom": "0",
+              "left": "0",
+              "isLinked": true
+            }
+          },
+          "elements": [
+            {
+              "id": "94nz33l",
+              "elType": "widget",
+              "widgetType": "html",
+              "settings": {
+                "html": "<section class=\"hero\">\n  <div class=\"hero-frame page\" id=\"hero\">\n    <div class=\"hero-zoom\">\n      <div class=\"hero-drop\">\n        <div class=\"kb\" style=\"background-image:url('/wp-content/themes/natajiwa-child/assets/img/gallery-10.webp')\"></div>\n      </div>\n    </div>\n    <div class=\"hero-copy center\">\n      <span class=\"label\">Say Hello</span>\n      <h1><span class=\"line\"><i>Contact &amp; Reserve</i></span></h1>\n    </div>\n  </div>\n</section>\n\n<!-- INTRO -->\n<section class=\"intro\">\n  <p class=\"reveal\">Tell us your dates and we'll hold the room that fits your stay. Direct booking, honest rates, and a warm island welcome.</p>\n</section>\n\n<!-- CONTACT -->\n<section class=\"wrap\" id=\"reserve\">\n  <div class=\"contact\">\n    <div class=\"info reveal\">\n      <div class=\"row\">\n        <span class=\"k\">Find Us</span>\n        <p>Jl. Pengubengan Kauh, Kerobokan Kelod,<br>Kec. Kuta Utara, Kabupaten Badung, Bali 80361</p>\n      </div>\n      <div class=\"row\">\n        <span class=\"k\">WhatsApp</span>\n        <p><a class=\"lk\" href=\"https://wa.me/6281000000000\">Message us on WhatsApp</a></p>\n      </div>\n      <div class=\"row\">\n        <span class=\"k\">Email</span>\n        <p><a class=\"lk\" href=\"mailto:natajiwavilla@gmail.com\">natajiwavilla@gmail.com</a></p>\n      </div>\n      <div class=\"row\">\n        <span class=\"k\">Follow</span>\n        <p><a class=\"lk\" href=\"#\">@natajiwavillage</a></p>\n      </div>\n      <div class=\"map\">\n        <iframe title=\"Natajiwa Village location\" loading=\"lazy\" referrerpolicy=\"no-referrer-when-downgrade\"\n          src=\"https://maps.google.com/maps?q=Kerobokan%20Kelod%20Kuta%20Utara%20Badung%20Bali&t=&z=14&ie=UTF8&iwloc=&output=embed\"></iframe>\n      </div>\n    </div>\n\n    <div class=\"reveal d1\">\n      <form class=\"form-card\" id=\"contactForm\" novalidate>\n        <div class=\"field\">\n          <label for=\"cf-name\">Name</label>\n          <input id=\"cf-name\" name=\"name\" type=\"text\" autocomplete=\"name\" required>\n        </div>\n        <div class=\"field\">\n          <label for=\"cf-email\">Email</label>\n          <input id=\"cf-email\" name=\"email\" type=\"email\" autocomplete=\"email\" required>\n        </div>\n        <div class=\"field\">\n          <label for=\"cf-dates\">Dates of Stay</label>\n          <input id=\"cf-dates\" name=\"dates\" type=\"text\" placeholder=\"e.g. 12–16 Oct\">\n        </div>\n        <div class=\"field\">\n          <label for=\"cf-msg\">Message</label>\n          <textarea id=\"cf-msg\" name=\"message\" rows=\"4\" required></textarea>\n        </div>\n        <button class=\"btn solid\" type=\"submit\">Send Enquiry</button>\n        <p id=\"formNote\" hidden style=\"margin-top:18px;color:var(--green);font-size:.95rem\">\n          Thank you — your enquiry has been noted. (Live form will send to natajiwavilla@gmail.com once connected in WordPress.)\n        </p>\n      </form>\n    </div>\n  </div>\n</section>\n\n<!-- FOOTER -->"
+              }
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "page_settings": {
+    "template": "elementor_canvas"
+  }
+}

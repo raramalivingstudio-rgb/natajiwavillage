@@ -1,0 +1,12 @@
+/*
+Theme Name: Natajiwa Village
+Theme URI: https://natajiwa.com
+Description: Child theme of Hello Elementor for Natajiwa Village. Reproduces The Scott Resort motion system (easings, scroll reveals, image-wipes, curtain-drop hero, per-letter buttons) reskinned to the Natajiwa brand — green #005232, cream, terracotta, with Fraunces + Jost. Built for Elementor Free + free plugins only.
+Author: Akanara Digital Solutions
+Template: hello-elementor
+Version: 1.0.0
+Text Domain: natajiwa-child
+*/
+
+/* Actual design system is enqueued from assets/css/scott.css (see functions.php).
+   Keep this file for the theme header + any small overrides only. */
