@@ -52,6 +52,9 @@
   .hero-copy{position:absolute;left:0;bottom:8%;z-index:2;padding:0 6%}
   .hero-copy h1{color:#fff;font-size:clamp(3rem,8vw,6.4rem);font-weight:400}
   .hero-copy .btn{margin-top:26px}
+  .scroll-cue{position:absolute;right:6%;bottom:8%;z-index:3;width:78px;height:78px;border:1px solid rgba(255,255,255,.5);border-radius:50%;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:6px;text-decoration:none;color:#fff;text-transform:uppercase;letter-spacing:.18em;font-size:.6rem}
+  .scroll-cue i{width:1px;height:16px;background:#fff;animation:cue 1.6s ease-in-out infinite}
+  @keyframes cue{0%,100%{transform:translateY(-3px);opacity:.4}50%{transform:translateY(3px);opacity:1}}
 
   /* ---------- Intro statement ---------- */
   .intro{text-align:center;padding:100px 20px 90px}
@@ -151,11 +154,12 @@
 <!-- HERO -->
 <section class="hero">
   <div class="hero-frame">
-    <div class="kb" style="background-image:url('/assets/img/gallery-01.webp')"></div>
+    <div class="kb" style="background-image:url('/assets/img/rooms/king-room/pool-view.webp')"></div>
     <div class="hero-copy">
       <h1>Find Your<br>Stillness Here</h1>
       <a class="btn light" href="#">Book Your Stay</a>
     </div>
+    <a class="scroll-cue" href="#stay" aria-label="Scroll down"><span>Scroll</span><i></i></a>
   </div>
 </section>
 
@@ -182,7 +186,7 @@
 </section>
 
 <!-- FULL-BLEED BAND -->
-<section class="band" style="background-image:url('/assets/img/rooms/king-room/pool-view.webp')"></section>
+<section class="band" style="background-image:url('/assets/img/gallery-01.webp')"></section>
 
 <!-- DINING (zig-zag) -->
 <section class="wrap split rev" id="dining">
