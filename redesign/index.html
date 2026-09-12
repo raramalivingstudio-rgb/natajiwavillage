@@ -3,195 +3,40 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Natajiwa Village — Redesign Prototype</title>
+<title>Natajiwa Village — A Wooden Sanctuary in Kerobokan, Bali</title>
+<meta name="description" content="Natajiwa Village is a wooden sanctuary in the heart of Kerobokan, Bali — slow mornings, garden light, and quiet luxury, moments from Canggu and Seminyak.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;1,9..144,400&family=Jost:wght@300;400;500&display=swap" rel="stylesheet">
-<style>
-  :root{
-    --green:#005232;          /* Natajiwa brand green */
-    --green-deep:#08301f;
-    --cream:#f5efe1;
-    --cream-2:#efe7d4;
-    --terra:#c46a3f;          /* accent (replaces The Scott's coral) */
-    --ink:#2b332e;
-    --muted:#6f7a72;
-    --border:rgba(43,51,46,.14);
-    --serif:'Fraunces','Cormorant Garamond',Georgia,serif;
-    --sans:'Jost',system-ui,-apple-system,Segoe UI,Roboto,sans-serif;
-    /* The Scott's signature easings */
-    --ease-out:cubic-bezier(.34,.615,.4,.985);
-    --ease-in:cubic-bezier(.65,.025,.67,.36);
-    --ease-link:cubic-bezier(.59,.08,.385,1);
-    --ease-wipe-in:cubic-bezier(.565,.43,.24,.92);
-    --ease-wipe-out:cubic-bezier(.7,.085,.79,.415);
-  }
-  *{box-sizing:border-box;margin:0;padding:0}
-  html{scroll-behavior:smooth}
-  body{background:var(--cream);color:var(--ink);font-family:var(--sans);font-weight:300;line-height:1.55;-webkit-font-smoothing:antialiased}
-  ::selection{background:var(--terra);color:#fff}
-  img{max-width:100%;display:block}
-  h1,h2,h3{font-family:var(--serif);font-weight:500;line-height:1.06}
-  .wrap{max-width:1240px;margin:0 auto;padding:0 32px}
-  .label{font-family:var(--sans);text-transform:uppercase;letter-spacing:.28em;font-size:.72rem;color:var(--terra);font-weight:400}
-
-  /* ---------- Links (coral→terracotta wipe underline) ---------- */
-  a.lk{color:inherit;text-decoration:none;position:relative;padding-bottom:.4rem;display:inline-block}
-  a.lk::after,a.lk::before{content:"";position:absolute;left:0;bottom:0;height:1px;width:100%}
-  a.lk::after{background:currentColor;opacity:.4}
-  a.lk::before{background:var(--terra);transform:scaleX(0);transform-origin:left center;transition:transform .4s var(--ease-link);z-index:2}
-  a.lk:hover::before{transform:scaleX(1)}
-
-  /* ---------- Button: fill rises from bottom + per-letter ---------- */
-  .btn{position:relative;display:inline-block;overflow:hidden;border:1px solid var(--ink);color:var(--ink);
-    background:transparent;text-transform:uppercase;letter-spacing:.22em;font-size:.72rem;
-    padding:16px 34px;text-decoration:none;line-height:1;cursor:pointer}
-  .btn .fill{position:absolute;inset:0;background:var(--green);transform:scaleY(0);transform-origin:bottom center;
-    transition:transform .43s var(--ease-out);z-index:1}
-  .btn .t{position:relative;z-index:2;display:block}
-  .btn .t span{display:inline-block;transition:transform .3s var(--ease-out),opacity .3s var(--ease-out)}
-  .btn .t--in{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;color:#fff}
-  .btn .t--in span{opacity:0;transform:translateY(1.6rem)}
-  .btn:hover .fill{transform:scaleY(1)}
-  .btn:hover .t--base span{opacity:0;transform:translateY(-1.6rem)}
-  .btn:hover .t--in span{opacity:1;transform:translateY(0)}
-  .btn.light{border-color:#fff;color:#fff}
-  .btn.light .fill{background:#fff}
-  .btn.light .t--in{color:var(--green)}
-
-  /* ---------- Header ---------- */
-  header{position:fixed;top:0;left:0;right:0;z-index:50;background:var(--green);transition:box-shadow .35s, background .35s}
-  header.scrolled{box-shadow:0 6px 30px rgba(0,0,0,.18)}
-  .nav{display:flex;align-items:center;justify-content:space-between;height:74px;padding:0 32px}
-  .nav .logo img{height:46px;filter:brightness(0) invert(1)}
-  .nav ul{display:flex;gap:34px;list-style:none}
-  .nav ul a{color:#fff;text-decoration:none;text-transform:uppercase;letter-spacing:.18em;font-size:.74rem;opacity:.9;transition:opacity .3s var(--ease-link),color .3s var(--ease-link)}
-  .nav ul a:hover{opacity:1;color:#e7c9b4}
-  .nav .right{display:flex;align-items:center;gap:22px}
-  .burger{display:none;flex-direction:column;gap:5px;background:none;border:0;cursor:pointer}
-  .burger span{width:26px;height:2px;background:#fff;display:block}
-
-  /* ---------- Hero: curtain drop + slow zoom + line-rise headline ---------- */
-  .hero{background:var(--green);padding:74px 14px 14px}
-  .hero-frame{position:relative;height:84vh;min-height:540px;overflow:hidden}
-  .hero-zoom{position:absolute;inset:0;overflow:hidden;transform:scale(1.24);transition:transform 2.5s var(--ease-out)}
-  .hero-frame.in .hero-zoom{transform:scale(1.001)}
-  .hero-drop{position:absolute;inset:0;background:var(--green);transform:translateY(-101%);transition:transform 1s var(--ease-wipe-in)}
-  .hero-frame.in .hero-drop{transform:translateY(0)}
-  .hero-drop .kb{position:absolute;inset:0;background-size:cover;background-position:center;transform:translateY(101%);transition:transform 1s var(--ease-wipe-in)}
-  .hero-frame.in .hero-drop .kb{transform:translateY(0)}
-  .hero-frame::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(0,0,0,.12),rgba(0,0,0,.5));z-index:1}
-  .hero-copy{position:absolute;left:0;bottom:9%;z-index:3;padding:0 6%}
-  .hero-copy h1{color:#fff;font-size:clamp(3rem,8vw,6.6rem);font-weight:400}
-  .hero-copy h1 .line{display:block;overflow:hidden}
-  .hero-copy h1 .line i{display:block;font-style:normal;transform:translateY(110%);transition:transform .9s var(--ease-out)}
-  .hero-frame.in .hero-copy h1 .line i{transform:translateY(0)}
-  .hero-frame.in .hero-copy h1 .line:nth-child(2) i{transition-delay:.09s}
-  .hero-copy .btn{margin-top:28px;opacity:0;transform:translateY(2rem);transition:opacity .8s var(--ease-out) .5s,transform .8s var(--ease-out) .5s}
-  .hero-frame.in .hero-copy .btn{opacity:1;transform:none}
-  .scroll-cue{position:absolute;right:6%;bottom:9%;z-index:3;width:80px;height:80px;border:1px solid rgba(255,255,255,.5);border-radius:50%;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:6px;color:#fff;text-transform:uppercase;letter-spacing:.18em;font-size:.6rem;text-decoration:none}
-  .scroll-cue i{width:1px;height:16px;background:#fff;animation:cue 1.6s ease-in-out infinite}
-  @keyframes cue{0%,100%{transform:translateY(-3px);opacity:.4}50%{transform:translateY(3px);opacity:1}}
-
-  /* ---------- Reveal (opacity + translateY, staggered) ---------- */
-  .reveal{opacity:0;transform:translateY(3rem);transition:opacity .8s var(--ease-out),transform .8s var(--ease-out)}
-  .reveal.in{opacity:1;transform:none}
-  .in .d1{transition-delay:.075s}.in .d2{transition-delay:.15s}.in .d3{transition-delay:.225s}.in .d4{transition-delay:.3s}
-
-  /* ---------- Intro ---------- */
-  .intro{text-align:center;padding:110px 20px 96px}
-  .emblem{width:40px;margin:0 auto 24px;opacity:.75}
-  .intro p{font-family:var(--serif);font-size:clamp(1.5rem,2.7vw,2.2rem);line-height:1.4;max-width:800px;margin:0 auto;color:var(--green-deep)}
-
-  /* ---------- Split (with image wipe) ---------- */
-  .split{display:grid;grid-template-columns:1fr 1fr;gap:70px;align-items:center;padding:44px 0}
-  .split.rev .media{order:2}
-  .media{position:relative;overflow:hidden}
-  .media img{width:100%;height:540px;object-fit:cover;transform:scale(1.2);transition:transform 1.3s var(--ease-out) .3s}
-  .media::after{content:"";position:absolute;inset:0;background:var(--green);transform:scaleX(1);transform-origin:right center;transition:transform .6s var(--ease-wipe-out);z-index:2}
-  .split.rev .media::after{transform-origin:left center}
-  .media.in img{transform:scale(1)}
-  .media.in::after{transform:scaleX(0);transition:transform .6s var(--ease-wipe-in) .15s}
-  .split h2{font-size:clamp(2.2rem,4vw,3.4rem);margin:.35em 0 .5em;color:var(--green-deep)}
-  .split p{color:var(--muted);max-width:44ch}
-  .roomlist{list-style:none;margin:26px 0}
-  .roomlist li{display:flex;justify-content:space-between;align-items:center;padding:16px 0;border-top:1px solid var(--border);font-size:1.05rem}
-  .roomlist li:last-child{border-bottom:1px solid var(--border)}
-  .roomlist .n{color:var(--terra)}
-  .split .btn{margin-top:8px}
-
-  /* ---------- Full-bleed band ---------- */
-  .band{height:80vh;min-height:460px;background-size:cover;background-position:center;background-attachment:fixed}
-
-  /* ---------- Green oasis ---------- */
-  .oasis{position:relative;background:var(--green-deep);color:#fff;overflow:hidden}
-  .oasis .leaf{position:absolute;inset:0;background-size:cover;background-position:center;opacity:.16;transform:scale(1.2);transition:transform 1.3s var(--ease-out) .3s}
-  .oasis.in .leaf{transform:scale(1)}
-  .oasis .wrap{position:relative;display:grid;grid-template-columns:1.1fr 1fr;gap:50px;align-items:center;padding:120px 32px}
-  .oasis h2{font-size:clamp(2.4rem,4.6vw,3.8rem);color:#fff}
-  .oasis p{color:#e9e3d3;margin-bottom:18px}
-
-  /* ---------- Experiences ---------- */
-  .exp{padding:110px 0 44px;text-align:center}
-  .exp h2{font-size:clamp(2rem,4vw,3rem);margin-bottom:52px;color:var(--green-deep)}
-  .cards{display:grid;grid-template-columns:1fr 1fr;gap:40px}
-  .card .ph{overflow:hidden}
-  .card .ph img{height:380px;width:100%;object-fit:cover;transition:transform .9s var(--ease-out)}
-  .card:hover .ph img{transform:scale(1.06)}
-  .card h3{font-size:1.7rem;margin:22px 0 10px;color:var(--green-deep)}
-  .card p{color:var(--muted);margin-bottom:16px}
-
-  /* ---------- Connect ---------- */
-  .connect{padding:110px 0 44px}
-  .connect .head{margin-bottom:36px}
-  .connect h2{font-size:clamp(1.8rem,3.5vw,2.6rem);color:var(--green-deep)}
-  .ig{display:grid;grid-template-columns:repeat(4,1fr);gap:14px}
-  .ig a{overflow:hidden;display:block}
-  .ig img{height:240px;width:100%;object-fit:cover;filter:saturate(.92);transition:transform .8s var(--ease-out),filter .8s}
-  .ig a:hover img{transform:scale(1.08);filter:saturate(1.1)}
-
-  /* ---------- Footer ---------- */
-  footer{margin-top:96px}
-  .foot{background:var(--cream-2);padding:74px 0 44px}
-  .foot .cols{display:grid;grid-template-columns:2fr 1fr 1fr;gap:40px}
-  .foot h4{font-family:var(--sans);text-transform:uppercase;letter-spacing:.2em;font-size:.74rem;color:var(--green);margin-bottom:18px;font-weight:500}
-  .foot .logo img{height:70px;margin-bottom:16px}
-  .foot p{color:var(--muted);max-width:320px}
-  .hotels{background:var(--green);color:#fff;text-align:center;padding:60px 20px}
-  .hotels .label{color:#e7c9b4}
-  .hotels h3{font-size:1.9rem;margin:10px 0 24px;color:#fff}
-
-  @media(max-width:860px){
-    .nav ul,.nav .right .btn{display:none}
-    .burger{display:flex}
-    .split,.oasis .wrap,.cards{grid-template-columns:1fr;gap:34px}
-    .split.rev .media{order:0}
-    .media img{height:340px}
-    .ig{grid-template-columns:1fr 1fr}
-    .foot .cols{grid-template-columns:1fr}
-    .band{background-attachment:scroll;height:54vh}
-    .hero-frame{height:72vh}
-  }
-</style>
+<link rel="stylesheet" href="assets/css/scott.css">
 </head>
 <body>
 
 <header id="hdr">
   <nav class="nav">
-    <a class="logo" href="#"><img src="/assets/img/natajiwa-logo-768.webp" alt="Natajiwa Village"></a>
+    <a class="logo" href="index.html"><img src="/assets/img/natajiwa-logo-768.webp" alt="Natajiwa Village"></a>
     <ul>
-      <li><a href="#stay">Rooms</a></li>
-      <li><a href="#dining">Dining</a></li>
-      <li><a href="#experiences">Experiences</a></li>
-      <li><a href="#connect">Gallery</a></li>
-      <li><a href="#">Contact</a></li>
+      <li><a href="rooms.html">Rooms</a></li>
+      <li><a href="index.html#dining">Dining</a></li>
+      <li><a href="index.html#experiences">Experiences</a></li>
+      <li><a href="gallery.html">Gallery</a></li>
+      <li><a href="contact.html">Contact</a></li>
     </ul>
     <div class="right">
-      <a class="btn light" href="#">Reserve</a>
-      <button class="burger" aria-label="Menu"><span></span><span></span><span></span></button>
+      <a class="btn light" href="contact.html">Reserve</a>
+      <button class="burger" id="burger" aria-label="Menu" aria-expanded="false"><span></span><span></span><span></span></button>
     </div>
   </nav>
 </header>
+
+<nav class="mobile-nav" id="mnav">
+  <a href="rooms.html">Rooms</a>
+  <a href="index.html#dining">Dining</a>
+  <a href="index.html#experiences">Experiences</a>
+  <a href="gallery.html">Gallery</a>
+  <a href="contact.html">Contact</a>
+  <a class="btn light m-btn" href="contact.html">Reserve</a>
+</nav>
 
 <!-- HERO -->
 <section class="hero">
@@ -203,7 +48,7 @@
     </div>
     <div class="hero-copy">
       <h1><span class="line"><i>Find Your</i></span><span class="line"><i>Stillness Here</i></span></h1>
-      <a class="btn light" href="#">Book Your Stay</a>
+      <a class="btn light" href="contact.html">Book Your Stay</a>
     </div>
     <a class="scroll-cue" href="#stay" aria-label="Scroll down"><span>Scroll</span><i></i></a>
   </div>
@@ -227,7 +72,7 @@
       <li><span>Wooden House · Private Pool</span><span class="n">02</span></li>
       <li><span>Deluxe Studio</span><span class="n">03</span></li>
     </ul>
-    <a class="btn" href="#">View All Rooms</a>
+    <a class="btn" href="rooms.html">View All Rooms</a>
   </div>
 </section>
 
@@ -241,7 +86,7 @@
     <span class="label">Restoran Sorai</span>
     <h2>Imbibe</h2>
     <p>From comforting Indonesian classics to shared plates and slow evenings, our kitchen celebrates the rich flavors of Nusantara — warm, familiar, and made for lingering.</p>
-    <a class="btn" href="#">Dine With Us</a>
+    <a class="btn" href="contact.html">Dine With Us</a>
   </div>
 </section>
 
@@ -252,7 +97,7 @@
     <span class="label">Slow Living</span>
     <h2>Renew</h2>
     <p>Draw a bath beneath open air, float in the pool at first light, and let the garden do the rest. At Natajiwa, rest is the itinerary.</p>
-    <a class="btn" href="#">Unwind With Us</a>
+    <a class="btn" href="rooms.html">Unwind With Us</a>
   </div>
 </section>
 
@@ -263,7 +108,7 @@
     <div class="reveal"><h2>A Bali Sanctuary,<br>Moments from the Coast</h2></div>
     <div class="reveal d1">
       <p>Tucked into Kerobokan, Natajiwa keeps you close to the surf of Canggu and the buzz of Seminyak while holding onto stillness — rice-field air, warm teak, and a pool that catches the evening.</p>
-      <a class="btn light" href="#">Discover More</a>
+      <a class="btn light" href="gallery.html">Discover More</a>
     </div>
   </div>
 </section>
@@ -276,13 +121,13 @@
       <div class="ph"><img src="/assets/img/gallery-04.webp" alt="Canggu"></div>
       <h3>Coast &amp; Canggu</h3>
       <p>Beach clubs, surf, and sunset — ten minutes from the door.</p>
-      <a class="btn" href="#">Learn More</a>
+      <a class="btn" href="gallery.html">Learn More</a>
     </div>
     <div class="card reveal d1">
       <div class="ph"><img src="/assets/img/gallery-05.webp" alt="Seminyak"></div>
       <h3>Seminyak Nights</h3>
       <p>Dining, boutiques, and the island's best evenings, close by.</p>
-      <a class="btn" href="#">Learn More</a>
+      <a class="btn" href="gallery.html">Learn More</a>
     </div>
   </div>
 </section>
@@ -291,10 +136,10 @@
 <section class="wrap connect" id="connect">
   <div class="head reveal"><span class="label">@natajiwavillage</span><h2>Connect with us</h2></div>
   <div class="ig">
-    <a href="#" class="reveal"><img src="/assets/img/gallery-02.webp" alt=""></a>
-    <a href="#" class="reveal d1"><img src="/assets/img/gallery-03.webp" alt=""></a>
-    <a href="#" class="reveal d2"><img src="/assets/img/gallery-10.webp" alt=""></a>
-    <a href="#" class="reveal d3"><img src="/assets/img/room-living.webp" alt=""></a>
+    <a href="gallery.html" class="reveal"><img src="/assets/img/gallery-02.webp" alt=""></a>
+    <a href="gallery.html" class="reveal d1"><img src="/assets/img/gallery-03.webp" alt=""></a>
+    <a href="gallery.html" class="reveal d2"><img src="/assets/img/gallery-10.webp" alt=""></a>
+    <a href="gallery.html" class="reveal d3"><img src="/assets/img/room-living.webp" alt=""></a>
   </div>
 </section>
 
@@ -308,43 +153,21 @@
       </div>
       <div>
         <h4>Explore</h4>
-        <p><a class="lk" href="#">Rooms</a></p><p><a class="lk" href="#">Dining</a></p><p><a class="lk" href="#">Gallery</a></p><p><a class="lk" href="#">Contact</a></p>
+        <p><a class="lk" href="rooms.html">Rooms</a></p><p><a class="lk" href="index.html#dining">Dining</a></p><p><a class="lk" href="gallery.html">Gallery</a></p><p><a class="lk" href="contact.html">Contact</a></p>
       </div>
       <div>
         <h4>Reserve</h4>
-        <p><a class="lk" href="#">Book Now</a></p><p><a class="lk" href="#">WhatsApp</a></p><p><a class="lk" href="#">natajiwavilla@gmail.com</a></p>
+        <p><a class="lk" href="contact.html">Book Now</a></p><p><a class="lk" href="contact.html">WhatsApp</a></p><p><a class="lk" href="mailto:natajiwavilla@gmail.com">natajiwavilla@gmail.com</a></p>
       </div>
     </div>
   </div>
   <div class="hotels">
     <span class="label">Natajiwa Village</span>
     <h3>Come Stay Awhile</h3>
-    <a class="btn light" href="#">Explore &amp; Book</a>
+    <a class="btn light" href="contact.html">Explore &amp; Book</a>
   </div>
 </footer>
 
-<script>
-  // Build The Scott-style two-layer, per-letter buttons
-  document.querySelectorAll('.btn').forEach(btn=>{
-    const text=btn.textContent.trim();
-    const letters=t=>[...t].map(c=>`<span>${c===' '?'&nbsp;':c}</span>`).join('');
-    btn.innerHTML=`<span class="fill"></span>`
-      +`<span class="t t--base">${letters(text)}</span>`
-      +`<span class="t t--in">${letters(text)}</span>`;
-    // stagger per-letter like the reference
-    btn.querySelectorAll('.t--in span').forEach((s,i)=>s.style.transitionDelay=(i*0.015)+'s');
-  });
-
-  // Sticky header
-  const hdr=document.getElementById('hdr');
-  addEventListener('scroll',()=>hdr.classList.toggle('scrolled',scrollY>40));
-
-  // Reveal + image-wipe observer (adds .in like The Scott's data-anim=true)
-  const io=new IntersectionObserver((es)=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}}),{threshold:.16});
-  document.querySelectorAll('.reveal,.media,.oasis').forEach(el=>io.observe(el));
-
-  // Hero plays on load
-  addEventListener('load',()=>requestAnimationFrame(()=>document.getElementById('hero').classList.add('in')));
-</script>
+<script src="assets/js/scott.js"></script>
 </body>
 </html>
