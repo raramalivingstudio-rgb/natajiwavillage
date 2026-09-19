@@ -27,7 +27,7 @@ $logo = get_stylesheet_directory_uri() . '/assets/img/natajiwa-logo-768.webp';
 			<li><a href="<?php echo esc_url( home_url( '/contact/' ) ); ?>">Contact</a></li>
 		</ul>
 		<div class="right">
-			<a class="btn light" href="<?php echo esc_url( home_url( '/contact/' ) ); ?>">Reserve</a>
+			<a class="btn light" href="https://beds24.com/book-natajiwa" target="_blank" rel="noopener">Reserve</a>
 			<button class="burger" id="burger" aria-label="Menu" aria-expanded="false"><span></span><span></span><span></span></button>
 		</div>
 	</nav>
@@ -39,5 +39,5 @@ $logo = get_stylesheet_directory_uri() . '/assets/img/natajiwa-logo-768.webp';
 	<a href="<?php echo esc_url( home_url( '/#experiences' ) ); ?>">Experiences</a>
 	<a href="<?php echo esc_url( home_url( '/gallery/' ) ); ?>">Gallery</a>
 	<a href="<?php echo esc_url( home_url( '/contact/' ) ); ?>">Contact</a>
-	<a class="btn light m-btn" href="<?php echo esc_url( home_url( '/contact/' ) ); ?>">Reserve</a>
+	<a class="btn light m-btn" href="https://beds24.com/book-natajiwa" target="_blank" rel="noopener">Reserve</a>
 </nav>
