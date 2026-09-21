@@ -67,9 +67,21 @@
   // ---- Hero auto-slideshow (crossfade + Ken Burns) ----
   var heroSlides = document.querySelectorAll('.hero-slide');
   var heroDots = document.getElementById('heroDots');
+  // Assign a slide's deferred background (data-bg) the first time it's needed,
+  // so only the first hero photo loads up-front (faster LCP).
+  var ensureBg = function (slide) {
+    if (slide && slide.dataset && slide.dataset.bg) {
+      slide.style.backgroundImage = "url('" + slide.dataset.bg + "')";
+      slide.removeAttribute('data-bg');
+    }
+  };
   if (heroSlides.length > 1) {
     var hi = 0, timer = null;
     var dots = [];
+    // Warm the remaining slides shortly after load (off the critical path).
+    window.addEventListener('load', function () {
+      setTimeout(function () { heroSlides.forEach(ensureBg); }, 600);
+    });
     if (heroDots) {
       heroSlides.forEach(function (_, idx) {
         var b = document.createElement('button');
@@ -85,6 +97,8 @@
       heroSlides[hi].classList.remove('is-active');
       if (dots[hi]) dots[hi].classList.remove('on');
       hi = (n + heroSlides.length) % heroSlides.length;
+      ensureBg( heroSlides[hi] );                     // load if not yet loaded
+      ensureBg( heroSlides[ (hi + 1) % heroSlides.length ] ); // prefetch next
       heroSlides[hi].classList.add('is-active');
       if (dots[hi]) dots[hi].classList.add('on');
     };

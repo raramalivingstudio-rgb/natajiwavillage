@@ -4,7 +4,7 @@
   "type": "page",
   "content": [
     {
-      "id": "lw4x9f0",
+      "id": "n543qtk",
       "elType": "section",
       "settings": {
         "layout": "full_width",
@@ -28,7 +28,7 @@
       },
       "elements": [
         {
-          "id": "g06aygd",
+          "id": "li99xd7",
           "elType": "column",
           "settings": {
             "_column_size": 100,
@@ -44,7 +44,7 @@
           },
           "elements": [
             {
-              "id": "kj9ypru",
+              "id": "az2nkvk",
               "elType": "widget",
               "widgetType": "html",
               "settings": {
