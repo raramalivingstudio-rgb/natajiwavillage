@@ -83,6 +83,11 @@ header.scrolled .nav .logo img{height:64px}
 .mobile-nav{position:fixed;inset:0;z-index:55;background:var(--green-deep);display:flex;flex-direction:column;
   align-items:center;justify-content:center;gap:8px;opacity:0;visibility:hidden;transition:opacity .5s var(--ease-out),visibility .5s}
 .mobile-nav.open{opacity:1;visibility:visible}
+.mobile-nav .m-close{position:absolute;top:22px;right:24px;width:46px;height:46px;border:1px solid rgba(255,255,255,.5);border-radius:50%;background:transparent;cursor:pointer;display:flex;align-items:center;justify-content:center}
+.mobile-nav .m-close span{position:absolute;width:20px;height:2px;background:#fff;display:block}
+.mobile-nav .m-close span:nth-child(1){transform:rotate(45deg)}
+.mobile-nav .m-close span:nth-child(2){transform:rotate(-45deg)}
+.mobile-nav .m-close:hover{background:rgba(255,255,255,.12)}
 .mobile-nav a{color:#fff;text-decoration:none;font-family:var(--serif);font-size:2rem;padding:10px 0;
   opacity:0;transform:translateY(1.4rem);transition:opacity .6s var(--ease-out),transform .6s var(--ease-out)}
 .mobile-nav.open a{opacity:1;transform:none}

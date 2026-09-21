@@ -21,7 +21,6 @@ $logo = get_stylesheet_directory_uri() . '/assets/img/natajiwa-logo-768.webp';
 		<a class="logo" href="<?php echo esc_url( home_url( '/' ) ); ?>"><img src="<?php echo esc_url( $logo ); ?>" alt="Natajiwa Village"></a>
 		<ul>
 			<li><a href="<?php echo esc_url( home_url( '/rooms/' ) ); ?>">Rooms</a></li>
-			<li><a href="<?php echo esc_url( home_url( '/#dining' ) ); ?>">Dining</a></li>
 			<li><a href="https://restoransorai.com/" target="_blank" rel="noopener">Restaurant</a></li>
 			<li><a href="<?php echo esc_url( home_url( '/#experiences' ) ); ?>">Experiences</a></li>
 			<li><a href="<?php echo esc_url( home_url( '/gallery/' ) ); ?>">Gallery</a></li>
@@ -35,8 +34,8 @@ $logo = get_stylesheet_directory_uri() . '/assets/img/natajiwa-logo-768.webp';
 </header>
 
 <nav class="mobile-nav" id="mnav">
+	<button class="m-close" id="mnavClose" aria-label="Close menu"><span></span><span></span></button>
 	<a href="<?php echo esc_url( home_url( '/rooms/' ) ); ?>">Rooms</a>
-	<a href="<?php echo esc_url( home_url( '/#dining' ) ); ?>">Dining</a>
 	<a href="https://restoransorai.com/" target="_blank" rel="noopener">Restaurant</a>
 	<a href="<?php echo esc_url( home_url( '/#experiences' ) ); ?>">Experiences</a>
 	<a href="<?php echo esc_url( home_url( '/gallery/' ) ); ?>">Gallery</a>

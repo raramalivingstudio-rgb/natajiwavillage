@@ -44,6 +44,12 @@
     mnav.querySelectorAll('a').forEach(function (a) {
       a.addEventListener('click', function () { toggle(false); });
     });
+    var mclose = document.getElementById('mnavClose');
+    if (mclose) mclose.addEventListener('click', function () { toggle(false); });
+    // Close on Escape for accessibility
+    document.addEventListener('keydown', function (e) {
+      if (e.key === 'Escape' && mnav.classList.contains('open')) toggle(false);
+    });
   }
 
   // ---- Reveal + image-wipe observer (mirrors The Scott's data-anim) ----
