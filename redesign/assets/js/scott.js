@@ -58,6 +58,34 @@
     document.querySelectorAll('.reveal,.media,.oasis').forEach(function (el) { el.classList.add('in'); });
   }
 
+  // ---- Hero auto-slideshow (crossfade + Ken Burns) ----
+  var heroSlides = document.querySelectorAll('.hero-slide');
+  var heroDots = document.getElementById('heroDots');
+  if (heroSlides.length > 1) {
+    var hi = 0, timer = null;
+    var dots = [];
+    if (heroDots) {
+      heroSlides.forEach(function (_, idx) {
+        var b = document.createElement('button');
+        b.type = 'button';
+        b.setAttribute('aria-label', 'Show slide ' + (idx + 1));
+        if (idx === 0) b.className = 'on';
+        b.addEventListener('click', function () { go(idx); reset(); });
+        heroDots.appendChild(b);
+        dots.push(b);
+      });
+    }
+    var go = function (n) {
+      heroSlides[hi].classList.remove('is-active');
+      if (dots[hi]) dots[hi].classList.remove('on');
+      hi = (n + heroSlides.length) % heroSlides.length;
+      heroSlides[hi].classList.add('is-active');
+      if (dots[hi]) dots[hi].classList.add('on');
+    };
+    var reset = function () { clearInterval(timer); timer = setInterval(function () { go(hi + 1); }, 5200); };
+    reset();
+  }
+
   // ---- Hero plays on load ----
   var hero = document.querySelector('.hero-frame');
   if (hero) {
