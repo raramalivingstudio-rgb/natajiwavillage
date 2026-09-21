@@ -13,7 +13,7 @@
   --cream-2:#efe7d4;
   --terra:#c46a3f;          /* accent (replaces The Scott's coral) */
   --ink:#2b332e;
-  --muted:#6f7a72;
+  --muted:#556058;
   --border:rgba(43,51,46,.14);
   --serif:'Fraunces','Cormorant Garamond',Georgia,serif;
   --sans:'Jost',system-ui,-apple-system,Segoe UI,Roboto,sans-serif;
@@ -115,9 +115,10 @@ header.scrolled .nav .logo img{height:64px}
 .hero-slide:first-child{opacity:1}
 .hero-slide.is-active{opacity:1;animation:heroKB 7s ease-out both}
 @keyframes heroKB{from{transform:scale(1.14)}to{transform:scale(1)}}
-.hero-dots{position:absolute;left:0;right:0;bottom:4.5%;z-index:4;display:flex;gap:11px;justify-content:center}
-.hero-dots button{width:9px;height:9px;padding:0;border-radius:50%;border:1px solid rgba(255,255,255,.85);background:transparent;cursor:pointer;transition:background .3s,transform .3s}
-.hero-dots button.on{background:#fff;transform:scale(1.1)}
+.hero-dots{position:absolute;left:0;right:0;bottom:3.5%;z-index:4;display:flex;gap:6px;justify-content:center}
+.hero-dots button{width:26px;height:26px;padding:0;border:0;background:transparent;cursor:pointer;position:relative}
+.hero-dots button::after{content:"";position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);width:9px;height:9px;border-radius:50%;border:1px solid rgba(255,255,255,.9);transition:background .3s,transform .3s}
+.hero-dots button.on::after{background:#fff;transform:translate(-50%,-50%) scale(1.15)}
 .hero-frame.page{height:62vh;min-height:420px}
 .hero-zoom{position:absolute;inset:0;overflow:hidden;transform:scale(1.24);transition:transform 2.5s var(--ease-out)}
 .hero-frame.in .hero-zoom{transform:scale(1.001)}
