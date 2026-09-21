@@ -93,6 +93,35 @@ function natajiwa_img( $path ) {
 }
 
 /* ==========================================================================
+   Performance — drop front-end bloat these bespoke pages never use.
+   ========================================================================== */
+
+// Remove WordPress core block CSS + classic/global styles (pages use scott.css).
+add_action( 'wp_enqueue_scripts', function () {
+	foreach ( array( 'wp-block-library', 'wp-block-library-theme', 'classic-theme-styles', 'global-styles' ) as $h ) {
+		wp_dequeue_style( $h );
+	}
+}, 100 );
+
+// Disable the emoji detection script/styles.
+add_action( 'init', function () {
+	remove_action( 'wp_head', 'print_emoji_detection_script', 7 );
+	remove_action( 'wp_print_styles', 'print_emoji_styles' );
+	remove_action( 'admin_print_scripts', 'print_emoji_detection_script' );
+	remove_action( 'admin_print_styles', 'print_emoji_styles' );
+	remove_filter( 'the_content_feed', 'wp_staticize_emoji' );
+	remove_filter( 'comment_text_rss', 'wp_staticize_emoji' );
+} );
+
+// Preconnect to the font CDN so fonts start downloading sooner.
+add_filter( 'wp_resource_hints', function ( $hints, $relation ) {
+	if ( 'preconnect' === $relation ) {
+		$hints[] = array( 'href' => 'https://fonts.gstatic.com', 'crossorigin' );
+	}
+	return $hints;
+}, 10, 2 );
+
+/* ==========================================================================
    SEO — Open Graph, Twitter Card, canonical, and LodgingBusiness schema.
    (For per-page titles/descriptions and an XML sitemap, also install the
    free Yoast SEO plugin — it complements this structured data.)
@@ -114,6 +143,12 @@ add_action( 'wp_head', function () {
 		echo '<link rel="mask-icon" href="' . esc_url( $fav ) . '" color="#005232">' . "\n";
 	}
 	echo '<link rel="canonical" href="' . esc_url( $url ) . '">' . "\n";
+	echo '<meta name="description" content="' . esc_attr( $desc ) . '">' . "\n";
+	// Preload the hero LCP image on the front page (it's a CSS background,
+	// so the browser can't discover it early on its own).
+	if ( is_front_page() || is_home() ) {
+		echo '<link rel="preload" as="image" fetchpriority="high" href="' . esc_url( get_stylesheet_directory_uri() . '/assets/img/property/villas-twilight.webp' ) . '">' . "\n";
+	}
 	echo '<meta property="og:site_name" content="' . esc_attr( $name ) . '">' . "\n";
 	echo '<meta property="og:type" content="website">' . "\n";
 	echo '<meta property="og:title" content="' . esc_attr( $title ) . '">' . "\n";
