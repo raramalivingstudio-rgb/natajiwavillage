@@ -49,7 +49,12 @@
     </div>
 
     <div class="reveal d1">
-      <form class="form-card" id="contactForm" novalidate>
+      <form class="form-card" id="contactForm" action="https://api.web3forms.com/submit" method="POST">
+        <input type="hidden" name="access_key" value="YOUR_WEB3FORMS_ACCESS_KEY">
+        <input type="hidden" name="subject" value="New enquiry from the Natajiwa Village website">
+        <input type="hidden" name="from_name" value="Natajiwa Village Website">
+        <!-- honeypot: hidden from people, catches bots -->
+        <input type="checkbox" name="botcheck" tabindex="-1" autocomplete="off" aria-hidden="true" style="position:absolute;left:-9999px">
         <div class="field">
           <label for="cf-name">Name</label>
           <input id="cf-name" name="name" type="text" autocomplete="name" required>
@@ -58,9 +63,15 @@
           <label for="cf-email">Email</label>
           <input id="cf-email" name="email" type="email" autocomplete="email" required>
         </div>
-        <div class="field">
-          <label for="cf-dates">Dates of Stay</label>
-          <input id="cf-dates" name="dates" type="text" placeholder="e.g. 12–16 Oct">
+        <div class="fieldrow">
+          <div class="field">
+            <label for="cf-in">Check-in <span class="opt">(optional)</span></label>
+            <input id="cf-in" name="check_in" type="date">
+          </div>
+          <div class="field">
+            <label for="cf-out">Check-out <span class="opt">(optional)</span></label>
+            <input id="cf-out" name="check_out" type="date">
+          </div>
         </div>
         <div class="field">
           <label for="cf-msg">Message</label>
@@ -68,7 +79,10 @@
         </div>
         <button class="btn solid" type="submit">Send Enquiry</button>
         <p id="formNote" hidden style="margin-top:18px;color:var(--green);font-size:.95rem">
-          Thank you — your enquiry has been noted. (Live form will send to natajiwavilla@gmail.com once connected in WordPress.)
+          Thank you — your enquiry has been sent. We'll reply by email shortly.
+        </p>
+        <p id="formErr" hidden style="margin-top:18px;font-size:.95rem">
+          Sorry, something went wrong. Please email us at natajiwavilla@gmail.com or message us on WhatsApp.
         </p>
       </form>
     </div>

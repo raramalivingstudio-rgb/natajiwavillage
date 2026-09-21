@@ -240,6 +240,12 @@ header.scrolled .nav .logo img{height:64px}
   font-family:var(--sans);font-size:1rem;color:var(--ink);padding:10px 2px;transition:border-color .3s}
 .field input:focus,.field textarea:focus{outline:0;border-color:var(--green)}
 .field textarea{resize:vertical;min-height:120px}
+.field input[type=date]{color:var(--ink);font-family:var(--sans)}
+.field .opt{color:var(--muted);text-transform:none;letter-spacing:0;font-size:.72rem}
+.fieldrow{display:grid;grid-template-columns:1fr 1fr;gap:22px}
+.form-card button[disabled]{opacity:.55;pointer-events:none}
+#formErr{color:var(--terra)}
+@media(max-width:600px){.fieldrow{grid-template-columns:1fr;gap:0}}
 .map{margin-top:20px;border:1px solid var(--border);overflow:hidden;background:var(--cream-2)}
 .map iframe{width:100%;height:340px;border:0;display:block;filter:saturate(.9)}
 

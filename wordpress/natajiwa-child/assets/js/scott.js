@@ -120,14 +120,35 @@
   var y = document.getElementById('year');
   if (y) y.textContent = String(new Date().getFullYear());
 
-  // ---- Contact form (front-end only demo; WP will wire WPForms/MetForm) ----
+  // ---- Contact form (submits to Web3Forms via fetch; dates optional) ----
   var form = document.getElementById('contactForm');
   if (form) {
     form.addEventListener('submit', function (ev) {
-      ev.preventDefault();
       var note = document.getElementById('formNote');
-      if (note) { note.hidden = false; }
-      form.reset();
+      var err = document.getElementById('formErr');
+      var action = form.getAttribute('action') || '';
+      if (note) note.hidden = true;
+      if (err) err.hidden = true;
+
+      // Not configured yet (placeholder key) -> show a friendly note, no send.
+      if (action.indexOf('web3forms') === -1 || form.querySelector('[name=access_key]') && /YOUR_WEB3FORMS/.test(form.querySelector('[name=access_key]').value)) {
+        ev.preventDefault();
+        if (note) note.hidden = false;
+        form.reset();
+        return;
+      }
+
+      ev.preventDefault();
+      var btn = form.querySelector('button[type=submit]');
+      if (btn) btn.disabled = true;
+      fetch(action, { method: 'POST', body: new FormData(form), headers: { 'Accept': 'application/json' } })
+        .then(function (r) { return r.json(); })
+        .then(function (data) {
+          if (data && data.success) { if (note) note.hidden = false; form.reset(); }
+          else { if (err) err.hidden = false; }
+        })
+        .catch(function () { if (err) err.hidden = false; })
+        .then(function () { if (btn) btn.disabled = false; });
     });
   }
 })();
