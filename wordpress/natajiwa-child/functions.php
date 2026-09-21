@@ -41,10 +41,10 @@ add_action( 'wp_enqueue_scripts', function () {
 		natajiwa_asset_ver( '/style.css' )
 	);
 
-	// Google Fonts — Fraunces (headings) + Jost (body).
+	// Google Fonts — Fraunces (headings) + Jost (body). Only the weights used.
 	wp_enqueue_style(
 		'natajiwa-fonts',
-		'https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;1,9..144,400&family=Jost:wght@300;400;500&display=swap',
+		'https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500&family=Jost:wght@300;400;500&display=swap',
 		array(),
 		null
 	);
@@ -119,6 +119,21 @@ add_filter( 'wp_resource_hints', function ( $hints, $relation ) {
 		$hints[] = array( 'href' => 'https://fonts.gstatic.com', 'crossorigin' );
 	}
 	return $hints;
+}, 10, 2 );
+
+// Load Google Fonts without blocking render (print-media swap), with a
+// <noscript> fallback. Text paints immediately in the fallback stack and
+// swaps to Fraunces/Jost when they arrive (display=swap keeps it smooth).
+add_filter( 'style_loader_tag', function ( $tag, $handle ) {
+	if ( 'natajiwa-fonts' !== $handle ) {
+		return $tag;
+	}
+	$async = str_replace(
+		array( "rel='stylesheet'", 'rel="stylesheet"' ),
+		array( "rel='stylesheet' media='print' onload=\"this.media='all'\"", 'rel="stylesheet" media="print" onload="this.media=\'all\'"' ),
+		$tag
+	);
+	return $async . '<noscript>' . $tag . '</noscript>';
 }, 10, 2 );
 
 /* ==========================================================================
