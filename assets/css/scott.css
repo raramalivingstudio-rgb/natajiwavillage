@@ -65,8 +65,10 @@ a.lk:hover::before{transform:scaleX(1)}
 /* ---------- Header ---------- */
 header{position:fixed;top:0;left:0;right:0;z-index:50;background:var(--green);transition:box-shadow .35s, background .35s}
 header.scrolled{box-shadow:0 6px 30px rgba(0,0,0,.18)}
-.nav{display:flex;align-items:center;justify-content:space-between;height:74px;padding:0 32px}
-.nav .logo img{height:46px;filter:brightness(0) invert(1)}
+.nav{display:flex;align-items:center;justify-content:space-between;height:92px;padding:0 32px}
+.nav .logo img{height:66px;filter:brightness(0) invert(1);transition:height .35s var(--ease-out)}
+header.scrolled .nav{height:78px}
+header.scrolled .nav .logo img{height:56px}
 .nav ul{display:flex;gap:34px;list-style:none}
 .nav ul a{color:#fff;text-decoration:none;text-transform:uppercase;letter-spacing:.18em;font-size:.74rem;opacity:.9;transition:opacity .3s var(--ease-link),color .3s var(--ease-link)}
 .nav ul a:hover,.nav ul a[aria-current="page"]{opacity:1;color:#e7c9b4}
@@ -93,8 +95,19 @@ header.scrolled{box-shadow:0 6px 30px rgba(0,0,0,.18)}
 .mobile-nav .m-btn{margin-top:22px;font-family:var(--sans);font-size:.72rem}
 
 /* ---------- Hero: curtain drop + slow zoom + line-rise headline ---------- */
-.hero{background:var(--green);padding:74px 14px 14px}
+.hero{background:var(--green);padding:92px 14px 14px}
 .hero-frame{position:relative;height:84vh;min-height:540px;overflow:hidden}
+
+/* ---------- Hero auto-slideshow (home) ---------- */
+.hero-frame.slides .hero-zoom{transform:none}
+.hero-slides{position:absolute;inset:0;transform:translateY(101%);transition:transform 1s var(--ease-wipe-in)}
+.hero-frame.in .hero-slides{transform:translateY(0)}
+.hero-slide{position:absolute;inset:0;background-size:cover;background-position:center;opacity:0;transition:opacity 1.5s ease}
+.hero-slide.is-active{opacity:1;animation:heroKB 7s ease-out both}
+@keyframes heroKB{from{transform:scale(1.14)}to{transform:scale(1)}}
+.hero-dots{position:absolute;left:0;right:0;bottom:4.5%;z-index:4;display:flex;gap:11px;justify-content:center}
+.hero-dots button{width:9px;height:9px;padding:0;border-radius:50%;border:1px solid rgba(255,255,255,.85);background:transparent;cursor:pointer;transition:background .3s,transform .3s}
+.hero-dots button.on{background:#fff;transform:scale(1.1)}
 .hero-frame.page{height:62vh;min-height:420px}
 .hero-zoom{position:absolute;inset:0;overflow:hidden;transform:scale(1.24);transition:transform 2.5s var(--ease-out)}
 .hero-frame.in .hero-zoom{transform:scale(1.001)}
@@ -244,4 +257,9 @@ footer{margin-top:96px}
   .band{background-attachment:scroll;height:54vh}
   .hero-frame{height:72vh}
   .form-card{padding:26px}
+  .nav{height:74px}
+  .nav .logo img{height:54px}
+  header.scrolled .nav{height:66px}
+  header.scrolled .nav .logo img{height:48px}
+  .hero{padding-top:74px}
 }
