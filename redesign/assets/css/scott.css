@@ -154,6 +154,12 @@ header.scrolled{box-shadow:0 6px 30px rgba(0,0,0,.18)}
 .price .amt{font-family:var(--serif);font-size:1.9rem;color:var(--green-deep)}
 .price .per{color:var(--muted);font-size:.85rem;letter-spacing:.04em}
 
+/* ---------- Per-room thumbnail strip ---------- */
+.thumbs{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin:26px 0 4px}
+.thumbs a,.thumbs span{display:block;overflow:hidden;position:relative}
+.thumbs img{height:96px;width:100%;object-fit:cover;transition:transform .8s var(--ease-out)}
+.thumbs a:hover img{transform:scale(1.08)}
+
 /* ---------- Full-bleed band ---------- */
 .band{height:80vh;min-height:460px;background-size:cover;background-position:center;background-attachment:fixed}
 
