@@ -17,7 +17,6 @@ $logo = get_stylesheet_directory_uri() . '/assets/img/natajiwa-logo-768.webp';
 			<div>
 				<h4>Explore</h4>
 				<p><a class="lk" href="<?php echo esc_url( home_url( '/rooms/' ) ); ?>">Rooms</a></p>
-				<p><a class="lk" href="<?php echo esc_url( home_url( '/#dining' ) ); ?>">Dining</a></p>
 				<p><a class="lk" href="https://restoransorai.com/" target="_blank" rel="noopener">Restaurant</a></p>
 				<p><a class="lk" href="<?php echo esc_url( home_url( '/gallery/' ) ); ?>">Gallery</a></p>
 				<p><a class="lk" href="<?php echo esc_url( home_url( '/contact/' ) ); ?>">Contact</a></p>

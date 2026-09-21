@@ -107,6 +107,12 @@ add_action( 'wp_head', function () {
 	$title = function_exists( 'wp_get_document_title' ) ? wp_get_document_title() : $name;
 
 	echo "\n<!-- Natajiwa SEO -->\n";
+	// Favicon (only if no WordPress Site Icon has been set in Customizer).
+	if ( ! has_site_icon() ) {
+		$fav = get_stylesheet_directory_uri() . '/assets/favicon.svg';
+		echo '<link rel="icon" href="' . esc_url( $fav ) . '" type="image/svg+xml">' . "\n";
+		echo '<link rel="mask-icon" href="' . esc_url( $fav ) . '" color="#005232">' . "\n";
+	}
 	echo '<link rel="canonical" href="' . esc_url( $url ) . '">' . "\n";
 	echo '<meta property="og:site_name" content="' . esc_attr( $name ) . '">' . "\n";
 	echo '<meta property="og:type" content="website">' . "\n";
