@@ -65,10 +65,10 @@ a.lk:hover::before{transform:scaleX(1)}
 /* ---------- Header ---------- */
 header{position:fixed;top:0;left:0;right:0;z-index:50;background:var(--green);transition:box-shadow .35s, background .35s}
 header.scrolled{box-shadow:0 6px 30px rgba(0,0,0,.18)}
-.nav{display:flex;align-items:center;justify-content:space-between;height:92px;padding:0 32px}
-.nav .logo img{height:66px;filter:brightness(0) invert(1);transition:height .35s var(--ease-out)}
-header.scrolled .nav{height:78px}
-header.scrolled .nav .logo img{height:56px}
+.nav{display:flex;align-items:center;justify-content:space-between;height:108px;padding:0 32px}
+.nav .logo img{height:88px;filter:brightness(0) invert(1);transition:height .35s var(--ease-out)}
+header.scrolled .nav{height:84px}
+header.scrolled .nav .logo img{height:64px}
 .nav ul{display:flex;gap:34px;list-style:none}
 .nav ul a{color:#fff;text-decoration:none;text-transform:uppercase;letter-spacing:.18em;font-size:.74rem;opacity:.9;transition:opacity .3s var(--ease-link),color .3s var(--ease-link)}
 .nav ul a:hover,.nav ul a[aria-current="page"]{opacity:1;color:#e7c9b4}
@@ -95,14 +95,19 @@ header.scrolled .nav .logo img{height:56px}
 .mobile-nav .m-btn{margin-top:22px;font-family:var(--sans);font-size:.72rem}
 
 /* ---------- Hero: curtain drop + slow zoom + line-rise headline ---------- */
-.hero{background:var(--green);padding:92px 14px 14px}
+.hero{background:var(--green);padding:108px 14px 14px}
 .hero-frame{position:relative;height:84vh;min-height:540px;overflow:hidden}
 
 /* ---------- Hero auto-slideshow (home) ---------- */
+/* Reveal plays automatically via CSS (does NOT depend on JS), so the
+   photos always show; JS only handles the auto-cycling. */
 .hero-frame.slides .hero-zoom{transform:none}
-.hero-slides{position:absolute;inset:0;transform:translateY(101%);transition:transform 1s var(--ease-wipe-in)}
-.hero-frame.in .hero-slides{transform:translateY(0)}
+.hero-frame.slides .hero-drop{transform:translateY(0);animation:heroDrop 1s var(--ease-wipe-in) both}
+.hero-frame.slides .hero-slides{position:absolute;inset:0;transform:translateY(0);animation:heroRise 1s var(--ease-wipe-in) both}
+@keyframes heroDrop{from{transform:translateY(-101%)}to{transform:translateY(0)}}
+@keyframes heroRise{from{transform:translateY(101%)}to{transform:translateY(0)}}
 .hero-slide{position:absolute;inset:0;background-size:cover;background-position:center;opacity:0;transition:opacity 1.5s ease}
+.hero-slide:first-child{opacity:1}
 .hero-slide.is-active{opacity:1;animation:heroKB 7s ease-out both}
 @keyframes heroKB{from{transform:scale(1.14)}to{transform:scale(1)}}
 .hero-dots{position:absolute;left:0;right:0;bottom:4.5%;z-index:4;display:flex;gap:11px;justify-content:center}
@@ -257,9 +262,9 @@ footer{margin-top:96px}
   .band{background-attachment:scroll;height:54vh}
   .hero-frame{height:72vh}
   .form-card{padding:26px}
-  .nav{height:74px}
-  .nav .logo img{height:54px}
-  header.scrolled .nav{height:66px}
-  header.scrolled .nav .logo img{height:48px}
-  .hero{padding-top:74px}
+  .nav{height:86px}
+  .nav .logo img{height:64px}
+  header.scrolled .nav{height:72px}
+  header.scrolled .nav .logo img{height:54px}
+  .hero{padding-top:86px}
 }
