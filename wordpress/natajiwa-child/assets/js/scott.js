@@ -82,12 +82,25 @@
     window.addEventListener('load', function () {
       setTimeout(function () { heroSlides.forEach(ensureBg); }, 600);
     });
+    // Dots are styled INLINE (not via the stylesheet) so LiteSpeed's UCSS /
+    // any CSS pruning can never strip them — they're built by JS.
+    var setDot = function (b, active) {
+      if (b && b._dot) {
+        b._dot.style.background = active ? '#fff' : 'transparent';
+        b._dot.style.transform = active ? 'scale(1.15)' : 'none';
+      }
+    };
     if (heroDots) {
       heroSlides.forEach(function (_, idx) {
         var b = document.createElement('button');
         b.type = 'button';
         b.setAttribute('aria-label', 'Show slide ' + (idx + 1));
-        if (idx === 0) b.className = 'on';
+        b.style.cssText = 'width:24px;height:24px;padding:0;border:0;background:transparent;cursor:pointer;display:inline-flex;align-items:center;justify-content:center';
+        var d = document.createElement('span');
+        d.style.cssText = 'width:9px;height:9px;border-radius:50%;border:1px solid rgba(255,255,255,.9);display:block;transition:background .3s ease,transform .3s ease';
+        b._dot = d;
+        b.appendChild(d);
+        setDot(b, idx === 0);
         b.addEventListener('click', function () { go(idx); reset(); });
         heroDots.appendChild(b);
         dots.push(b);
@@ -95,12 +108,12 @@
     }
     var go = function (n) {
       heroSlides[hi].classList.remove('is-active');
-      if (dots[hi]) dots[hi].classList.remove('on');
+      setDot(dots[hi], false);
       hi = (n + heroSlides.length) % heroSlides.length;
       ensureBg( heroSlides[hi] );                     // load if not yet loaded
       ensureBg( heroSlides[ (hi + 1) % heroSlides.length ] ); // prefetch next
       heroSlides[hi].classList.add('is-active');
-      if (dots[hi]) dots[hi].classList.add('on');
+      setDot(dots[hi], true);
     };
     var reset = function () { clearInterval(timer); timer = setInterval(function () { go(hi + 1); }, 5200); };
     reset();
