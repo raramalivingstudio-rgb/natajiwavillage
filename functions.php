@@ -93,6 +93,28 @@ function natajiwa_img( $path ) {
 }
 
 /* ==========================================================================
+   SEO housekeeping — keep the sitemap to real content only.
+   ========================================================================== */
+
+// Remove author ("users") and taxonomy (category/tag) sitemaps — this is a
+// brochure site with no blog taxonomy to index, and author archives expose
+// the admin username.
+add_filter( 'wp_sitemaps_add_provider', function ( $provider, $name ) {
+	if ( in_array( $name, array( 'users', 'taxonomies' ), true ) ) {
+		return false;
+	}
+	return $provider;
+}, 10, 2 );
+
+// Disable author archive pages (privacy + thin content) -> send to home.
+add_action( 'template_redirect', function () {
+	if ( is_author() ) {
+		wp_safe_redirect( home_url( '/' ), 301 );
+		exit;
+	}
+} );
+
+/* ==========================================================================
    Performance — drop front-end bloat these bespoke pages never use.
    ========================================================================== */
 
